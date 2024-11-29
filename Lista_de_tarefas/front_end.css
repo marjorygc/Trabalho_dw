@@ -25,7 +25,14 @@
     background-color: var(--tema_dia);
     display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center; 
+    color: var(--tema_noite);  
+}
+
+#modoBotao{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
 
 .lista{
