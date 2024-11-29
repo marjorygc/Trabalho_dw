@@ -2,6 +2,10 @@ const modoBotao = document.querySelector("#modoBotao")
 const container = document.querySelector("#container")
 const botaoImg = document.querySelector("#botaoImg")
 
+const tarefas = document.querySelector(".tarefas")
+const plus = document.querySelector("#plus")
+plus.onclick = add_tarefa
+
 modoBotao.addEventListener("click", changebackground)
 
 function changebackground(){
@@ -13,4 +17,8 @@ function changebackground(){
         botaoImg.src = "https://img.icons8.com/?size=100&id=648&format=png&color=000000"; 
     }
     
+}
+
+function add_tarefa(){
+
 }
