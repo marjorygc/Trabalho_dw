@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="./front_end.css">
-    <script src="./back_end.js"defer></script>
+    <title>Document</title>
+    <style>
+        #tela{
+        display:none;
+        background-color:rgb(81, 155, 252);
+        padding: 10px; }
+    </style>
 </head>
 <body>
     <div id="container">
@@ -58,38 +62,48 @@
     </div>
 
     <div id="tela">
-        <ul class="x">
-            <li>
-                 <h2>Desenvolvimento Web 1</h2>
-            </li>
-            <li>
-                <a class="icon" href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512" id="close" fill="rgb(255,255,255)"><path d="M437.5 386.6L306.9 256l130.6-130.6c14.1-14.1 14.1-36.8 0-50.9-14.1-14.1-36.8-14.1-50.9 0L256 205.1 125.4 74.5c-14.1-14.1-36.8-14.1-50.9 0-14.1 14.1-14.1 36.8 0 50.9L205.1 256 74.5 386.6c-14.1 14.1-14.1 36.8 0 50.9 14.1 14.1 36.8 14.1 50.9 0L256 306.9l130.6 130.6c14.1 14.1 36.8 14.1 50.9 0 14-14.1 14-36.9 0-50.9z"></path></svg></a>
-                
-            </li>
-            
-        </ul>
-       
-        <h3>Alunas:</h3>
+        <h1>Desenvolvimento Web 1</h1>
+        <h2>Alunas:</h2>
         <div class="dados">
             <ul class="dado">
                 <li class="list-item">
-                    <img src="./WhatsApp Image 2024-11-29 at 16.32.56.jpeg" alt="imag1">
+                    <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="imag1">
                     <div class="conteiner">
-                        <p>Marjory Gonçalves Cardoso</p>
-                        <a href="https://wa.me/5544984216692">44984216692</a>
+                        <h3>Marjory Gonçalves Cardoso</h3>
+                        <a href="">44984216692</a>
                     </div>
                        
                 </li>
                 <li class="list-item">
-                    <img src="./WhatsApp Image 2024-11-29 at 16.24.17.jpeg" alt="imag2">
+                    <img src="https://randomuser.me/api/portraits/men/66.jpg" alt="imag2">
                     <div class="conteiner">
-                        <p>Samara Oliveira da Silva</p>
-                        <a href="https://wa.me/5521985711111">21985711111</a>
+                        <h3>Samara Oliveira da Silva</h3>
+                        <a href="">21985711111</a>
                     </div>
                        
                 </li>
             </ul>
 
+        </div>
     </div>
+
+    <script>
+       document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.key.toLowerCase() === 'h') {
+        e.preventDefault();
+        console.log("ok")
+        const tela2 = document.querySelector("#tela");
+        const tela1 = document.querySelector("#container");
+        const tela2Display = window.getComputedStyle(tela2).display;
+    if (tela2Display === 'none') {
+        tela2.style.display = 'block';
+        tela1.style.display = 'none';
+    } else {
+        tela2.style.display = 'none';
+        tela1.style.display = 'block';
+    }
+    }
+    });
+    </script>
 </body>
 </html>
