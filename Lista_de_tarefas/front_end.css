@@ -15,7 +15,7 @@
 }
 
 #container{
-    background-image: url("./imagem-fundo.avif");
+    background-image: url("imagens/imagem-fundo.avif");
     width: 100vw;
     height: 100vh;
     padding: 10px;
@@ -29,7 +29,8 @@
     color: var(--tema_noite);  
 }
 
-#modoBotao{
+#modoBotao button{
+    
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
