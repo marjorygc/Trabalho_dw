@@ -54,7 +54,6 @@ body{
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
-    padding-bottom: 5px;
     margin: 2px;
     border-radius: 10%;
     display: flex;
@@ -140,9 +139,6 @@ button{
     border-radius: 7px;
     justify-content: space-between;
 }
-img{
-    height: 20px;
-}
 h1{
     font-family: "Edu AU VIC WA NT Pre", cursive;
     color: var(--tema_dia);
@@ -158,6 +154,7 @@ h1{
     background-color:rgb(55, 118, 201);
     padding: 20px;
     color: rgb(18, 18, 104);
+    font-size: 20px;
 }
 h2{
     font-family: "Edu AU VIC WA NT Pre", cursive;
@@ -167,10 +164,18 @@ h2{
 }
 p{
     color:rgb(55, 118, 201) ;
+    font-size: 25px;
 }
 a{
     color: white;
     text-decoration: none;
+    font-size: 18px;
+}
+.icon:hover{
+    background-color:var(--tema_dia);
+}
+ .icon svg:hover{
+    fill: rgb(15, 15, 109);
 }
 
 .x{
@@ -188,7 +193,7 @@ a{
 }
 
 .list-item img{
-    height: 60px;
+    height: 80px;
     flex-shrink: 0;
     clip-path: circle(50%);
 
