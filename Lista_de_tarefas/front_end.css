@@ -11,7 +11,7 @@
 :root{
     --tema_dia:white;
     --tema_noite:black;
-    --alt:30px; 
+    --alt:40px; 
 }
 body{
     background-image: url("imagens/imagem-fundo.avif");
@@ -61,7 +61,7 @@ body{
     
 }
 svg{
-    fill: white;
+    fill:var(--tema_dia);
 }
 #modoBotao:hover{
     background-color:var(--tema_dia);
@@ -113,15 +113,21 @@ button img.mais{
     height: 15px;
 }
 button{
+    background-color: rgb(76, 76, 212);
     border-radius: 10px;
     width: 30px;
     height: 30px;
 }
 .check{
-    color: white;
+    color: black;
     align-items: center;
     display: flex;
     gap: 5px;
+}
+.tarefas{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .item{
     list-style: none;
@@ -132,12 +138,18 @@ button{
     padding-right: 5px;
     background-color: rgb(117, 119, 233);
     width: 40vw;
-    height: var;
+    height: var(--alt);
     display: flex;
     align-items:center;
     border: solid 1px var(--tema_dia);
     border-radius: 7px;
     justify-content: space-between;
+}
+img{
+    height: 30px;
+}
+button img{
+    height:25px ;
 }
 h1{
     font-family: "Edu AU VIC WA NT Pre", cursive;
@@ -163,7 +175,7 @@ h2{
     padding: 10px;
 }
 p{
-    color:rgb(55, 118, 201) ;
+    color:rgb(241, 241, 241) ;
     font-size: 25px;
 }
 a{
@@ -211,8 +223,11 @@ a{
 }
 
 
-.conteiner{
+.conteiner2{
     flex-grow: 1;
     padding: 1rem;
    
+}
+.conteiner2 p{
+    color: rgb(7, 7, 105);
 }

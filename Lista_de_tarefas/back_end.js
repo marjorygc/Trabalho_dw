@@ -50,6 +50,11 @@ plus.addEventListener("click", add_tarefa)
 function add_tarefa(){
     const novaTarefa = inputTarefa.value
 
+    if (!novaTarefa.trim()) {
+        alert("Digite uma tarefa");
+        return;
+    }
+
     const itemLista = document.createElement("li")
     itemLista.classList.add("item")
 
@@ -66,6 +71,7 @@ function add_tarefa(){
 
     const icones = document.createElement("div")
     icones.classList.add("image")
+    
 
     const imgCaneta = document.createElement("img")
     imgCaneta.src = "https://img.icons8.com/?size=100&id=sKp0dy2A108d&format=png&color=000000"
@@ -86,17 +92,31 @@ function add_tarefa(){
         itemLista.remove() 
     })
 
-    imgCaneta.addEventListener("click", function(){
-        const edicaoTarefa = document.createElement("input")
-        textoTarefa = edicaoTarefa
-        itemLista.replaceChild(edicaoTarefa, textoTarefa.value)
-        //const edicaoTarefa = prompt(textoTarefa.textContent)
-    })
+    imgCaneta.addEventListener("click", function () {
+        const edicaoTarefa = document.createElement("input");
+        edicaoTarefa.value = textoTarefa.textContent; // Preenche o input com o texto atual
+        itemLista.replaceChild(edicaoTarefa, textoTarefa); // Substitui o <p> pelo <input>
+    
+        // Salva a edição ao perder o foco
+        edicaoTarefa.addEventListener("blur", function () {
+            textoTarefa.textContent = edicaoTarefa.value; // Atualiza o texto com o valor editado
+            itemLista.replaceChild(textoTarefa, edicaoTarefa); // Substitui o <input> pelo <p>
+        });
+    });
 
-    botao.addEventListener("click", function(){
-        imgCheck.src = "imagens/icons8"
-        botao.appendChild(imgCheck)
-    })
+    botao.addEventListener("click", function () {
+        const imgCheck = botao.querySelector("img");
+        if (imgCheck) {
+            // Remove o check e o risco no texto
+            imgCheck.remove();
+            textoTarefa.style.textDecoration = "none";
+        } else {
+            // Adiciona o check e risca o texto
+            const novoImgCheck = document.createElement("img");
+            novoImgCheck.src = "check.png";
+            botao.appendChild(novoImgCheck);
+            textoTarefa.style.textDecoration = "line-through";
+        }
+    });
     inputTarefa.value = ""
 }
-
