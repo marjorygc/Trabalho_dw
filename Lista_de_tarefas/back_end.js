@@ -2,6 +2,8 @@ const modoBotao = document.querySelector("#modoBotao")
 const body = document.querySelector("body")
 const botaoImg = document.querySelector("#botaoImg")
 
+modoBotao.addEventListener("click", changebackground)
+
 function changebackground(){
     if(body.style.backgroundImage == 'url("imagens/imagem-fundo.avif")'){
          body.style.backgroundImage = 'url("imagens/back_escuro.png")';
@@ -12,9 +14,6 @@ function changebackground(){
     }
     
 }
-
-modoBotao.addEventListener("click", changebackground)
-
 
 document.addEventListener('keydown', function(e) {
     if (e.ctrlKey && e.key.toLowerCase() === 'h') {
