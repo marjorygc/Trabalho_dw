@@ -1,16 +1,19 @@
 const modoBotao = document.querySelector("#modoBotao")
 const body = document.querySelector("body")
 const botaoImg = document.querySelector("#botaoImg")
+const h1= document.querySelector("h1")
 
 modoBotao.addEventListener("click", changebackground)
 
 function changebackground(){
     if(body.style.backgroundImage == 'url("imagens/imagem-fundo.avif")'){
          body.style.backgroundImage = 'url("imagens/back_escuro.png")';
-         botaoImg.scr = "https://img.icons8.com/?size=100&id=26031&format=png&color=000000"; 
+         botaoImg.scr = "https://img.icons8.com/?size=100&id=26031&format=png&color=000000";
+        h1.style.color= "var(--tema_noite)"
     } else {
         body.style.backgroundImage = 'url("imagens/imagem-fundo.avif")';
         botaoImg.src = "https://img.icons8.com/?size=100&id=648&format=png&color=000000"; 
+        h1.style.color= "var(--tema_dia)"
     }
     
 }
@@ -134,6 +137,11 @@ function barra_progresso(){
     const barra = document.getElementById("porcentagem")
     barra.style.display = 'block';
 
+    if(quant_tarefas==0){
+        barra.style.display = 'none'
+        return;
+    }
+
     for (let i = 0; i < quant_tarefas; i++){
         const itens = ul.children[i]
         const imgCheck = itens.querySelector("button img");
@@ -146,9 +154,12 @@ function barra_progresso(){
     const porcentagem = (tarefas_feitas/quant_tarefas) * 100
         console.log(porcentagem)
     
-    barra.innerHTML = `<progress value="${tarefas_feitas}" max="${quant_tarefas}"></progress>`;
-    let texto_barra = document.createElement("p")
-    texto_barra.textContent = `${tarefas_feitas}/${quant_tarefas}`;
+        barra.innerHTML = `
+        <div class="progress-container">
+            <progress class="progresso" value="${tarefas_feitas}" max="${quant_tarefas}"></progress>
+            <span class="progress-text">${Math.round(porcentagem)}%</span>
+        </div>
+    `
 
     const existingText = document.getElementById("texto-barra");
     if (existingText) {

@@ -4,13 +4,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
 
 :root{
-    --tema_dia:white;
-    --tema_noite:black;
+    --tema_dia:rgb(255, 255, 255);
+    --tema_noite:rgb(0, 183, 255);
     --alt:40px; 
 }
 body{
@@ -50,7 +50,7 @@ body{
 }
 
 #modoBotao,.icon{
-    background-color: rgb(66, 91, 170);
+    background-color: rgb(64, 86, 158);
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -67,7 +67,7 @@ svg{
     background-color:var(--tema_dia);
 }
 #modoBotao svg:hover{
-    fill: rgb(15, 15, 109);
+    fill: rgb(15, 29, 109);
 }
 
 .lista{
@@ -80,11 +80,11 @@ svg{
     align-items: center;
 }
 input,#plus{
-    background-color: rgb(157, 157, 240);
-    border: 2px solid blue;
+    background-color: rgb(157, 203, 240);
+    border: 2px solid rgb(3, 35, 105);
     border-radius: 4px;
     padding:0.5rem ;
-    color: blue;
+    color: rgb(13, 33, 131);
 }
 .adicionar{
     display: flex;
@@ -113,7 +113,7 @@ button img.mais{
     height: 15px;
 }
 button{
-    background-color: rgb(76, 76, 212);
+    background-color: rgb(63, 114, 255);
     border-radius: 10px;
     width: 30px;
     height: 30px;
@@ -136,7 +136,7 @@ button{
     padding: 1px;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: rgb(117, 119, 233);
+    background-color: rgb(113, 157, 252);
     width: 40vw;
     height: var(--alt);
     display: flex;
@@ -158,30 +158,35 @@ h1{
     padding: 10px;
 }
 #tela{
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    margin: auto;
     transition: 0.5s;
     display:none;
     border-radius: 10px;
-    background-color:rgb(55, 118, 201);
+    background-color:rgb(67, 77, 138);
     padding: 20px;
-    color: rgb(18, 18, 104);
-    font-size: 20px;
+    color: rgb(33, 131, 196);
+    font-size: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 h2{
     font-family: "Edu AU VIC WA NT Pre", cursive;
-    color: var(--tema_dia);
-    font-size:2rem ;
+    color: var(--tema_noite);
+    font-size:1.5rem ;
     padding: 10px;
+    text-align: center;
 }
 p{
     color:rgb(241, 241, 241) ;
-    font-size: 25px;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 a{
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 0.9rem;
 }
 .icon:hover{
     background-color:var(--tema_dia);
@@ -205,7 +210,7 @@ a{
 }
 
 .list-item img{
-    height: 80px;
+    height: 60px;
     flex-shrink: 0;
     clip-path: circle(50%);
 
@@ -239,9 +244,86 @@ a{
     height: var(--alt);
 }
 
-#porcentagem progress{
+progress {
     width: 100%;
-    height: 100%;
-    background-color: rgb(7, 7, 105);
-    border-radius: 20px;
+    height: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    appearance: none; /* Remove o estilo padrão do navegador */
+  }
+  .progress-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  /* Centraliza o texto dentro da barra */
+  .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #fff; /* Ajuste dependendo do estilo da barra */
+    font-weight: bold;
+    pointer-events: none; /* Evita interferência no clique */
+  }
+
+  /* Estilo da barra de fundo */
+    progress::-webkit-progress-bar {
+    background-color: #b5baf8;
+    border-radius:10px;
+  }
+   /* Estilo da parte preenchida (barra de progresso) */
+   progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #02005f, #0b5580);
+    border-radius: 10px;
+  }
+
+  /* Para Firefox */
+  progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #152688, #034c7c);
+    border-radius: 10px;
+  }
+
+  /* Ajustes para telas menores que 768px */
+@media (max-width: 768px) {
+    #tela {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .list-item img {
+        height: 50px;
+    }
+}
+
+/* Ajustes para telas menores que 480px */
+@media (max-width: 480px) {
+    #tela {
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .list-item {
+        flex-direction: column; /* Alinha verticalmente */
+        text-align: center;
+    }
+
+    .list-item img {
+        margin-bottom: 10px;
+    }
 }
