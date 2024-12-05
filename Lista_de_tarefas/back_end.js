@@ -7,7 +7,7 @@ modoBotao.addEventListener("click", changebackground)
 function changebackground(){
     if(body.style.backgroundImage == 'url("imagens/imagem-fundo.avif")'){
          body.style.backgroundImage = 'url("imagens/back_escuro.png")';
-         botaoImg.scr = "https://img.icons8.com/?size=100&id=45474&format=png&color=000000"; 
+         botaoImg.scr = "https://img.icons8.com/?size=100&id=26031&format=png&color=000000"; 
     } else {
         body.style.backgroundImage = 'url("imagens/imagem-fundo.avif")';
         botaoImg.src = "https://img.icons8.com/?size=100&id=648&format=png&color=000000"; 
@@ -45,6 +45,11 @@ const plus = document.querySelector("#plus")
 const tarefas = document.querySelector(".tarefas")
 
 plus.addEventListener("click", add_tarefa) 
+// plus.addEventListener("click", function() {
+//     add_tarefa();
+//     barra_progresso();
+// });
+
 
 function add_tarefa(){
     const novaTarefa = inputTarefa.value
@@ -89,33 +94,71 @@ function add_tarefa(){
 
     imgLixo.addEventListener("click", function() {
         itemLista.remove() 
+        barra_progresso()
     })
 
     imgCaneta.addEventListener("click", function () {
         const edicaoTarefa = document.createElement("input");
-        edicaoTarefa.value = textoTarefa.textContent; // Preenche o input com o texto atual
-        itemLista.replaceChild(edicaoTarefa, textoTarefa); // Substitui o <p> pelo <input>
+        edicaoTarefa.value = textoTarefa.textContent; 
+        itemLista.replaceChild(edicaoTarefa, textoTarefa); 
     
-        // Salva a edição ao perder o foco
         edicaoTarefa.addEventListener("blur", function () {
-            textoTarefa.textContent = edicaoTarefa.value; // Atualiza o texto com o valor editado
-            itemLista.replaceChild(textoTarefa, edicaoTarefa); // Substitui o <input> pelo <p>
+            textoTarefa.textContent = edicaoTarefa.value;
+            itemLista.replaceChild(textoTarefa, edicaoTarefa); 
+            barra_progresso()
         });
     });
 
     botao.addEventListener("click", function () {
         const imgCheck = botao.querySelector("img");
         if (imgCheck) {
-            // Remove o check e o risco no texto
             imgCheck.remove();
             textoTarefa.style.textDecoration = "none";
         } else {
-            // Adiciona o check e risca o texto
             const novoImgCheck = document.createElement("img");
             novoImgCheck.src = "check.png";
             botao.appendChild(novoImgCheck);
             textoTarefa.style.textDecoration = "line-through";
         }
+        barra_progresso()    
     });
     inputTarefa.value = ""
+    barra_progresso()
 }
+
+
+function barra_progresso(){
+    const ul = document.querySelector('ul'); 
+    let quant_tarefas = ul.children.length;
+    let tarefas_feitas = 0
+    const barra = document.getElementById("porcentagem")
+    barra.style.display = 'block';
+
+    for (let i = 0; i < quant_tarefas; i++){
+        const itens = ul.children[i]
+        const imgCheck = itens.querySelector("button img");
+
+        if (imgCheck){
+            tarefas_feitas += 1
+            };
+    } 
+
+    const porcentagem = (tarefas_feitas/quant_tarefas) * 100
+        console.log(porcentagem)
+    
+    barra.innerHTML = `<progress value="${tarefas_feitas}" max="${quant_tarefas}"></progress>`;
+    let texto_barra = document.createElement("p")
+    texto_barra.textContent = `${tarefas_feitas}/${quant_tarefas}`;
+
+    const existingText = document.getElementById("texto-barra");
+    if (existingText) {
+        existingText.remove(); // Remove o texto anterior, se houver
+    }
+
+    // Adiciona o novo texto ao DOM dentro da barra
+    texto_barra.id = "texto-barra"; // Atribui um ID para controle
+    barra.appendChild(texto_barra);
+
+}
+
+
