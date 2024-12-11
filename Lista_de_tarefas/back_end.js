@@ -2,18 +2,14 @@ const modoBotao = document.querySelector("#modoBotao")
 const body = document.querySelector("body")
 const plusid = document.querySelector("#plus")
 const input= document.querySelector("input")
-
-//const botaoImg = document.querySelector("#botaoImg")
 const h1= document.querySelector("h1")
 
 const solSVG = `
-    <path d="M 24.90625 3.96875 C 24.863281 3.976563 24.820313 3.988281 24.78125 4 C 24.316406 4.105469 23.988281 4.523438 24 5 L 24 11 C 23.996094 11.359375 24.183594 11.695313 24.496094 11.878906 C 24.808594 12.058594 25.191406 12.058594 25.503906 11.878906 C 25.816406 11.695313 26.003906 11.359375 26 11 L 26 5 C 26.011719 4.710938 25.894531 4.433594 25.6875 4.238281 C 25.476563 4.039063 25.191406 3.941406 24.90625 3.96875 Z"></path>
+   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 `;
 
 const luaSVG = `
-    <path d="M 24.90625 3.96875 C 24.863281 3.976563 24.820313 3.988281 24.78125 4 C 24.316406 4.105469 23.988281 4.523438 24 5 L 24 11 C 23.996094 11.359375 24.183594 11.695313 24.496094 11.878906 C 24.808594 12.058594 25.191406 12.058594 25.503906 11.878906 C 25.816406 11.695313 26.003906 11.359375 26 11 L 26 5 C 26.011719 4.710938 25.894531 4.433594 25.6875 4.238281 C 25.476563 4.039063 25.191406 3.941406 24.90625 3.96875 Z"></path>
-    <path d="M 30,10 C 28,15 23,12 25,20 C 24,25 29,30 26,35 C 20,38 19,28 17,22 C 12,17 14,13 10,15 C 8,20 12,25 17,25 C 20,25 21,27 22,30 C 28,28 30,22 29,18 C 28,13 28,10 30,10 Z"></path>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
 `;
 
 
@@ -23,24 +19,42 @@ function changebackground(){
 
     const iconeSVG = document.querySelector("#iconeSVG")
 
-    while (iconeSVG.firstChild) {
-        iconeSVG.removeChild(iconeSVG.firstChild);
-    }
+    const novoSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        novoSVG.setAttribute("id", "iconeSVG");
+        novoSVG.setAttribute("x", "0px");
+        novoSVG.setAttribute("y", "0px");
+        novoSVG.setAttribute("width", "25");
+        novoSVG.setAttribute("height", "25");
+        novoSVG.setAttribute("viewBox", "0 0 50 50");
+
 
     if(body.style.backgroundImage == 'url("imagens/imagem-fundo.avif")'){
          body.style.backgroundImage = 'url("imagens/back_escuro.png")'
-         iconeSVG.innerHTML = luaSVG
+
+         novoSVG.innerHTML = luaSVG
+
          h1.style.color = "var(--tema_noite)"
          plusid.style.background= "rgb(15, 72, 119)"
          input.style.background= "rgb(15, 72, 119)"
          input.style.color= "var(--tema_dia)"
     } else {
         body.style.backgroundImage = 'url("imagens/imagem-fundo.avif")'
-        iconeSVG.innerHTML = solSVG 
+
+        novoSVG.innerHTML = solSVG 
+        iconeSVG.parentNode.replaceChild(novoSVG, iconeSVG);
+
+        iconeSVG.parentNode.replaceChild(novoSVG, iconeSVG)
+
         h1.style.color= "var(--tema_dia)"
         plusid.style.background = " rgb(157, 203, 240)"
         input.style.background = " rgb(157, 203, 240)"
         input.style.color= "rgb(15, 72, 119)"
+    }
+    if (iconeSVG) {
+        iconeSVG.parentNode.replaceChild(novoSVG, iconeSVG);
+    } else {
+        // Caso o ícone SVG não exista ainda, simplesmente adicionamos ele
+        modoBotao.appendChild(novoSVG);
     }
     
 }
