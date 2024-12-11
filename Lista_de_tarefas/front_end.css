@@ -10,7 +10,7 @@
 
 :root{
     --tema_dia:rgb(255, 255, 255);
-    --tema_noite:rgb(0, 183, 255);
+    --tema_noite:rgb(10, 126, 172);
     --alt:40px; 
 }
 body{
@@ -50,7 +50,7 @@ body{
 }
 
 #modoBotao,.icon{
-    background-color: rgb(64, 86, 158);
+    background-color: rgb(64, 128, 158);
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -67,7 +67,7 @@ svg{
     background-color:var(--tema_dia);
 }
 #modoBotao svg:hover{
-    fill: rgb(15, 29, 109);
+    fill: rgb(15, 59, 109);
 }
 
 .lista{
@@ -81,10 +81,10 @@ svg{
 }
 input,#plus{
     background-color: rgb(157, 203, 240);
-    border: 2px solid rgb(3, 35, 105);
+    border: 2px solid rgb(50, 112, 170);
     border-radius: 4px;
     padding:0.5rem ;
-    color: rgb(13, 33, 131);
+    color: rgb(13, 68, 131);
 }
 .adicionar{
     display: flex;
@@ -113,13 +113,12 @@ button img.mais{
     height: 15px;
 }
 button{
-    background-color: rgb(63, 114, 255);
+    background-color: rgb(1, 49, 110);
     border-radius: 10px;
     width: 30px;
     height: 30px;
 }
 .check{
-    color: black;
     align-items: center;
     display: flex;
     gap: 5px;
@@ -136,7 +135,7 @@ button{
     padding: 1px;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: rgb(113, 157, 252);
+    background-color: rgb(130, 178, 240);
     width: 40vw;
     height: var(--alt);
     display: flex;
@@ -145,8 +144,31 @@ button{
     border-radius: 7px;
     justify-content: space-between;
 }
+.item p{
+    max-width: 55%; /* Largura máxima */
+    max-height: 34px; /* Altura máxima */
+    overflow: auto; /* Adiciona barra de rolagem se necessário */
+}
+p::-webkit-scrollbar {
+    width: 8px; /* Largura da barra vertical */
+    height: 8px; /* Altura da barra horizontal */
+}
+
+p::-webkit-scrollbar-thumb {
+    background-color: rgb(157, 203, 240); /* Cor do polegar */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+p::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cor ao passar o mouse */
+}
+
+p::-webkit-scrollbar-track {
+    background: #e9f9ff; /* Cor de fundo do trilho */
+    border-radius: 10px; /* Bordas arredondadas */
+}
 img{
-    height: 30px;
+    height: 20px;
 }
 button img{
     height:25px ;
@@ -165,11 +187,12 @@ h1{
     transition: 0.5s;
     display:none;
     border-radius: 10px;
-    background-color:rgb(67, 77, 138);
+    background-color:rgb(19, 41, 70);
     padding: 20px;
     color: rgb(33, 131, 196);
     font-size: 1rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    
 }
 h2{
     font-family: "Edu AU VIC WA NT Pre", cursive;
@@ -179,9 +202,10 @@ h2{
     text-align: center;
 }
 p{
-    color:rgb(241, 241, 241) ;
+    color:rgb(0, 0, 0) ;
     font-size: 1rem;
     line-height: 1.5;
+    
 }
 a{
     color: white;
@@ -192,7 +216,7 @@ a{
     background-color:var(--tema_dia);
 }
  .icon svg:hover{
-    fill: rgb(15, 15, 109);
+    fill: rgb(15, 67, 109);
 }
 
 .x{
@@ -201,7 +225,7 @@ a{
 }
 
 .dado{
-    background-color: rgb(208, 204, 233);
+    background-color: rgb(204, 220, 233);
     border: 10px solid rgb(81, 155, 252);
     padding: 2rem;
     height: 100%;
@@ -219,7 +243,7 @@ a{
     display: flex;
     align-items: center;
     padding: 1rem;
-    border-bottom: 1px solid rgb(41, 19, 122);
+    border-bottom: 1px solid rgb(19, 55, 122);
     
 }
 .list-item:nth-last-child(1){
@@ -234,7 +258,7 @@ a{
    
 }
 .conteiner2 p{
-    color: rgb(7, 7, 105);
+    color: rgb(7, 38, 105);
 }
 
 #porcentagem{
@@ -271,18 +295,18 @@ progress {
 
   /* Estilo da barra de fundo */
     progress::-webkit-progress-bar {
-    background-color: #b5baf8;
+    background-color: #c6d7e6;
     border-radius:10px;
   }
    /* Estilo da parte preenchida (barra de progresso) */
    progress::-webkit-progress-value {
-    background: linear-gradient(90deg, #02005f, #0b5580);
+    background: linear-gradient(90deg, #00115f, #0b5580);
     border-radius: 10px;
   }
 
   /* Para Firefox */
   progress::-moz-progress-bar {
-    background: linear-gradient(90deg, #152688, #034c7c);
+    background: linear-gradient(90deg, #152688, #03647c);
     border-radius: 10px;
   }
 

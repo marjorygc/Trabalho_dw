@@ -1,5 +1,8 @@
 const modoBotao = document.querySelector("#modoBotao")
 const body = document.querySelector("body")
+const plusid = document.querySelector("#plus")
+const input= document.querySelector("input")
+
 //const botaoImg = document.querySelector("#botaoImg")
 const h1= document.querySelector("h1")
 
@@ -28,11 +31,16 @@ function changebackground(){
          body.style.backgroundImage = 'url("imagens/back_escuro.png")'
          iconeSVG.innerHTML = luaSVG
          h1.style.color = "var(--tema_noite)"
+         plusid.style.background= "rgb(15, 72, 119)"
+         input.style.background= "rgb(15, 72, 119)"
+         input.style.color= "var(--tema_dia)"
     } else {
         body.style.backgroundImage = 'url("imagens/imagem-fundo.avif")'
         iconeSVG.innerHTML = solSVG 
         h1.style.color= "var(--tema_dia)"
-
+        plusid.style.background = " rgb(157, 203, 240)"
+        input.style.background = " rgb(157, 203, 240)"
+        input.style.color= "rgb(15, 72, 119)"
     }
     
 }
