@@ -13,6 +13,7 @@
     --tema_noite:rgb(10, 126, 172);
     --alt:40px; 
 }
+
 body{
     background-image: url("imagens/imagem-fundo.avif");
     background-size: cover;
@@ -25,6 +26,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.modo-dia {
+    background-image: url("imagens/imagem-fundo.avif");
+}
+
+.modo-noite {
+    background-image: url("imagens/back_escuro.png");
 }
 
 #container{
@@ -64,7 +72,7 @@ svg{
     fill:var(--tema_dia);
 }
 #modoBotao:hover{
-    background-color:var(--tema_dia);
+    background-color: rgb(15, 59, 109);
 }
 #modoBotao svg:hover{
     fill: rgb(15, 59, 109);

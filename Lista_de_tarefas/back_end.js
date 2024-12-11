@@ -1,54 +1,58 @@
-const modoBotao = document.querySelector("#modoBotao")
-const body = document.querySelector("body")
-const plusid = document.querySelector("#plus")
-const input= document.querySelector("input")
-const h1= document.querySelector("h1")
+const modoBotao = document.querySelector("#modoBotao");
+const body = document.querySelector("body");
+const plusid = document.querySelector("#plus");
+const input = document.querySelector("input");
+const h1 = document.querySelector("h1");
 
 const solSVG = `
-   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+   <circle cx="12" cy="12" r="5"/>
+   <line x1="12" y1="1" x2="12" y2="3"/>
+   <line x1="12" y1="21" x2="12" y2="23"/>
+   <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+   <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+   <line x1="1" y1="12" x2="3" y2="12"/>
+   <line x1="21" y1="12" x2="23" y2="12"/>
+   <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+   <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
 `;
 
 const luaSVG = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+   <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
 `;
 
+modoBotao.addEventListener("click", changeBackground);
 
-modoBotao.addEventListener("click", changebackground)
 
-function changebackground(){
-
-    const iconeSVG = document.querySelector("#iconeSVG")
-
+function changeBackground() {
+    const iconeSVG = document.querySelector("#iconeSVG");
     const novoSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        novoSVG.setAttribute("id", "iconeSVG");
-        novoSVG.setAttribute("x", "0px");
-        novoSVG.setAttribute("y", "0px");
-        novoSVG.setAttribute("width", "25");
-        novoSVG.setAttribute("height", "25");
-        novoSVG.setAttribute("viewBox", "0 0 50 50");
+    novoSVG.setAttribute("id", "iconeSVG");
+    novoSVG.setAttribute("width", "25");
+    novoSVG.setAttribute("height", "25");
+    novoSVG.setAttribute("viewBox", "0 0 25 25");
+    novoSVG.setAttribute("fill", "none");
+    novoSVG.setAttribute("stroke", "currentColor");
+    novoSVG.setAttribute("stroke-width", "2");
+    novoSVG.setAttribute("stroke-linecap", "round");
+    novoSVG.setAttribute("stroke-linejoin", "round");
 
-
-    if(body.style.backgroundImage == 'url("imagens/imagem-fundo.avif")'){
-         body.style.backgroundImage = 'url("imagens/back_escuro.png")'
-
-         novoSVG.innerHTML = luaSVG
-
-         h1.style.color = "var(--tema_noite)"
-         plusid.style.background= "rgb(15, 72, 119)"
-         input.style.background= "rgb(15, 72, 119)"
-         input.style.color= "var(--tema_dia)"
+    // Alterna entre os modos dia e noite
+    if (body.classList.contains("modo-dia")) {
+        body.classList.remove("modo-dia");
+        body.classList.add("modo-noite");
+        h1.style.color = "var(--tema_noite)";
+        plusid.style.background = "rgb(15, 72, 119)";
+        input.style.background = "rgb(15, 72, 119)";
+        input.style.color = "var(--tema_dia)";
+        novoSVG.innerHTML = solSVG;
     } else {
-        body.style.backgroundImage = 'url("imagens/imagem-fundo.avif")'
-
-        novoSVG.innerHTML = solSVG 
-        iconeSVG.parentNode.replaceChild(novoSVG, iconeSVG);
-
-        iconeSVG.parentNode.replaceChild(novoSVG, iconeSVG)
-
-        h1.style.color= "var(--tema_dia)"
-        plusid.style.background = " rgb(157, 203, 240)"
-        input.style.background = " rgb(157, 203, 240)"
-        input.style.color= "rgb(15, 72, 119)"
+        body.classList.remove("modo-noite");
+        body.classList.add("modo-dia");
+        h1.style.color = "var(--tema_dia)";
+        plusid.style.background = "rgb(157, 203, 240)";
+        input.style.background = "rgb(157, 203, 240)";
+        input.style.color = "rgb(15, 72, 119)";
+        novoSVG.innerHTML = luaSVG;
     }
     if (iconeSVG) {
         iconeSVG.parentNode.replaceChild(novoSVG, iconeSVG);
