@@ -1,19 +1,38 @@
 const modoBotao = document.querySelector("#modoBotao")
 const body = document.querySelector("body")
-const botaoImg = document.querySelector("#botaoImg")
+//const botaoImg = document.querySelector("#botaoImg")
 const h1= document.querySelector("h1")
+
+const solSVG = `
+    <path d="M 24.90625 3.96875 C 24.863281 3.976563 24.820313 3.988281 24.78125 4 C 24.316406 4.105469 23.988281 4.523438 24 5 L 24 11 C 23.996094 11.359375 24.183594 11.695313 24.496094 11.878906 C 24.808594 12.058594 25.191406 12.058594 25.503906 11.878906 C 25.816406 11.695313 26.003906 11.359375 26 11 L 26 5 C 26.011719 4.710938 25.894531 4.433594 25.6875 4.238281 C 25.476563 4.039063 25.191406 3.941406 24.90625 3.96875 Z"></path>
+`;
+
+const luaSVG = `
+    <path d="M 24.90625 3.96875 C 24.863281 3.976563 24.820313 3.988281 24.78125 4 C 24.316406 4.105469 23.988281 4.523438 24 5 L 24 11 C 23.996094 11.359375 24.183594 11.695313 24.496094 11.878906 C 24.808594 12.058594 25.191406 12.058594 25.503906 11.878906 C 25.816406 11.695313 26.003906 11.359375 26 11 L 26 5 C 26.011719 4.710938 25.894531 4.433594 25.6875 4.238281 C 25.476563 4.039063 25.191406 3.941406 24.90625 3.96875 Z"></path>
+    <path d="M 30,10 C 28,15 23,12 25,20 C 24,25 29,30 26,35 C 20,38 19,28 17,22 C 12,17 14,13 10,15 C 8,20 12,25 17,25 C 20,25 21,27 22,30 C 28,28 30,22 29,18 C 28,13 28,10 30,10 Z"></path>
+
+`;
+
 
 modoBotao.addEventListener("click", changebackground)
 
 function changebackground(){
+
+    const iconeSVG = document.querySelector("#iconeSVG")
+
+    while (iconeSVG.firstChild) {
+        iconeSVG.removeChild(iconeSVG.firstChild);
+    }
+
     if(body.style.backgroundImage == 'url("imagens/imagem-fundo.avif")'){
-         body.style.backgroundImage = 'url("imagens/back_escuro.png")';
-         botaoImg.scr = "https://img.icons8.com/?size=100&id=26031&format=png&color=000000";
-        h1.style.color= "var(--tema_noite)"
+         body.style.backgroundImage = 'url("imagens/back_escuro.png")'
+         iconeSVG.innerHTML = luaSVG
+         h1.style.color = "var(--tema_noite)"
     } else {
-        body.style.backgroundImage = 'url("imagens/imagem-fundo.avif")';
-        botaoImg.src = "https://img.icons8.com/?size=100&id=648&format=png&color=000000"; 
+        body.style.backgroundImage = 'url("imagens/imagem-fundo.avif")'
+        iconeSVG.innerHTML = solSVG 
         h1.style.color= "var(--tema_dia)"
+
     }
     
 }
