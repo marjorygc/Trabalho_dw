@@ -184,7 +184,6 @@ button img{
 h1{
     font-family: "Edu AU VIC WA NT Pre", cursive;
     color: var(--tema_dia);
-    font-size:3rem ;
     padding: 10px;
 }
 #tela{
@@ -205,7 +204,6 @@ h1{
 h2{
     font-family: "Edu AU VIC WA NT Pre", cursive;
     color: var(--tema_noite);
-    font-size:1.5rem ;
     padding: 10px;
     text-align: center;
 }
@@ -319,12 +317,14 @@ progress {
   }
 
   /* Ajustes para telas menores que 768px */
-@media (max-width: 768px) {
+  @media (min-width: 768px) {
     #tela {
         padding: 10px;
         font-size: 0.9rem;
     }
-
+    h1 {
+        font-size: 3rem;
+    }
     h2 {
         font-size: 1.2rem;
     }
@@ -334,6 +334,7 @@ progress {
     }
 }
 
+
 /* Ajustes para telas menores que 480px */
 @media (max-width: 480px) {
     #tela {
@@ -341,7 +342,9 @@ progress {
         font-size: 0.8rem;
         padding: 5px;
     }
-
+    h1 {
+        font-size: 2rem;
+    }
     h2 {
         font-size: 1rem;
     }
