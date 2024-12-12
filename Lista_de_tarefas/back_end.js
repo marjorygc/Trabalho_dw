@@ -93,11 +93,6 @@ const plus = document.querySelector("#plus")
 const tarefas = document.querySelector(".tarefas")
 
 plus.addEventListener("click", add_tarefa) 
-// plus.addEventListener("click", function() {
-//     add_tarefa();
-//     barra_progresso();
-// });
-
 
 function add_tarefa(){
     const novaTarefa = inputTarefa.value
@@ -164,7 +159,7 @@ function add_tarefa(){
             textoTarefa.style.textDecoration = "none";
         } else {
             const novoImgCheck = document.createElement("img");
-            novoImgCheck.src = "check.png";
+            novoImgCheck.src = "imagens/check.png";
             botao.appendChild(novoImgCheck);
             textoTarefa.style.textDecoration = "line-through";
         }
